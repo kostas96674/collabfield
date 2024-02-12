@@ -85,9 +85,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
-    bootstrap-sass (3.3.7)
+    bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+      sassc (>= 2.0.0)
     bootstrap_form (5.4.0)
       actionpack (>= 6.1)
       activemodel (>= 6.1)
@@ -235,9 +235,6 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
-    rb-fsevent (0.11.2)
-    rb-inotify (0.10.1)
-      ffi (~> 1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
@@ -266,11 +263,6 @@ GEM
     rspec-support (3.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -326,7 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bootstrap-sass (~> 3.3.6)
+  bootstrap-sass (~> 3.4.1)
   bootstrap_form
   capybara
   database_cleaner
@@ -345,7 +337,7 @@ DEPENDENCIES
   rails (~> 7.1.2)
   rails-controller-testing
   rspec-rails (~> 6.0.4)
-  sass-rails (>= 3.2)
+  sass-rails (>= 6.0)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
