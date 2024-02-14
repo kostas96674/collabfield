@@ -22,6 +22,7 @@ module PostsHelper
     def post_format_partial_path
       current_page?(root_path) ? 'posts/post/home_page' : 'posts/post/branch_page'
     end
+
     def category_field_partial_path
       if params[:category].present?
         'posts/branch/search_form/category_field'
@@ -29,6 +30,7 @@ module PostsHelper
         'shared/empty_partial'
       end
     end
+
     def update_pagination_partial_path
       if @posts.next_page
         'posts/posts_pagination_page/update_pagination'
@@ -36,4 +38,21 @@ module PostsHelper
         'posts/posts_pagination_page/remove_pagination'
       end
     end
+
+    def contact_user_partial_path
+      if user_signed_in?
+        @post.user.id != current_user.id ? 'posts/show/contact_user' : 'shared/empty_partial'
+      else 
+        'posts/show/login_required'
+      end
+    end
+
+    def leave_message_partial_path
+      if @message_has_been_sent
+        'posts/show/contact_user/already_in_touch'
+      else
+        'posts/show/contact_user/message_form'
+      end
+    end
+    
 end
