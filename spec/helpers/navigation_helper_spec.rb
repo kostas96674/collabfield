@@ -35,7 +35,7 @@ RSpec.describe NavigationHelper, :type => :helper do
 
   it "returns partials' paths for buttons without dropdowns" do
     controller.params[:controller] = 'not_messengers'
-    view.stub(:user_signed_in?).and_return(false)
+    allow(helper).to receive(:user_signed_in?).and_return(false)
     partials = ['layouts/navigation/header/toggle_button']
     partials << 'layouts/navigation/header/home_button'
     expect(helper.nav_header_content_partials).to eq partials
@@ -43,7 +43,7 @@ RSpec.describe NavigationHelper, :type => :helper do
 
   it "returns partials' paths for buttons and dropdowns" do
     controller.params[:controller] = 'not_messengers'
-    view.stub("user_signed_in?").and_return(true)
+    allow(helper).to receive(:user_signed_in?).and_return(true)
     partials = ['layouts/navigation/header/toggle_button']
     partials << 'layouts/navigation/header/home_button'
     partials << 'layouts/navigation/header/dropdowns'

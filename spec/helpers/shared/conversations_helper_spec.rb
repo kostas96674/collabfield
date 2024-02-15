@@ -10,7 +10,7 @@ RSpec.describe Shared::ConversationsHelper, :type => :helper do
               conversation_id: conversation.id,
               seen: false, 
               user_id: current_user.id)
-      view.stub(:current_user).and_return(current_user)
+      allow(view).to receive(:current_user).and_return(current_user)
       expect(helper.private_conv_seen_status(conversation)).to eq ''
     end
 
@@ -22,7 +22,7 @@ RSpec.describe Shared::ConversationsHelper, :type => :helper do
               conversation_id: conversation.id,
               seen: true, 
               user_id: recipient.id)
-      view.stub(:current_user).and_return(current_user)
+      allow(view).to receive(:current_user).and_return(current_user)
       expect(helper.private_conv_seen_status(conversation)).to eq ''
     end
 
@@ -34,7 +34,7 @@ RSpec.describe Shared::ConversationsHelper, :type => :helper do
               conversation_id: conversation.id,
               seen: false, 
               user_id: recipient.id)
-      view.stub(:current_user).and_return(current_user)
+      allow(view).to receive(:current_user).and_return(current_user)
       expect(helper.private_conv_seen_status(conversation)).to eq(
         'unseen-conv'
       )
