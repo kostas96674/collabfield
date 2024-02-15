@@ -69,7 +69,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   Capybara.javascript_driver = :poltergeist
   Capybara.server = :puma 
-
+  Capybara.default_max_wait_time = 5
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
