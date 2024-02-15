@@ -12,3 +12,11 @@ $(document).on('turbo:load', function() {
       $('.myModal').modal('show');
     });
   });
+
+  window.addEventListener('turbo:before-cache', function() {
+    // Close the modal before leaving the page
+    const modal = document.querySelector('.myModal');
+    if (modal) {
+        $(modal).modal('hide');
+    }
+});
