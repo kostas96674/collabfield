@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Group::MessagesHelper, :type => :helper do
 
 context '#group_message_seen_by' do
-  let(:message) { create(:group_message) }
+  let(:message) { create(:group_message, seen_by: []) }
   it 'returns an array with users' do
     users = create_list(:user, 2)
     users.each do |user|
