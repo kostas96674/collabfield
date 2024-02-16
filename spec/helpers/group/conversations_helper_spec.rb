@@ -15,13 +15,13 @@ RSpec.describe Group::ConversationsHelper, :type => :helper do
     it 'a user is not included in a list' do
         conversation.users << current_user
         conversation.users << user
-        helper.stub(:current_user).and_return(current_user)
+        allow(helper).to receive(:current_user).and_return(current_user)
         expect(helper.add_people_to_group_conv_list(conversation)).not_to include user
     end
 
     it 'a user is included in a list' do
         conversation.users << current_user
-        helper.stub(:current_user).and_return(current_user)
+        allow(helper).to receive(:current_user).and_return(current_user)
         expect(helper.add_people_to_group_conv_list(conversation)).to include user
     end
     end
